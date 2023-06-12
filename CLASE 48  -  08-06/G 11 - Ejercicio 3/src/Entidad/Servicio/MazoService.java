@@ -10,9 +10,9 @@ import java.util.Scanner;
 
 public class MazoService {
 
-    private final Mazo montonPrin;
-    private final Mazo montonEntreg;
-    private final Scanner leer;
+    private Mazo montonPrin;
+    private Mazo montonEntreg;
+    private Scanner leer;
 
     public MazoService() {
         montonPrin = new Mazo();//acá se guardarán las cartas del mazo principal
@@ -45,7 +45,8 @@ public class MazoService {
         }
         montonPrin.setCartas(carMonton);//ya todas las cartas cradas y puestas dentro de carMonton se las pasamos a montonPrin con un set
         System.out.println("Baraja iniciada");
-        System.out.println(montonPrin.toString());
+        System.out.println("");
+        mostrarBarajav2();
 
         return montonPrin;
 
@@ -64,7 +65,7 @@ public class MazoService {
      */
     public void siguienteCarta() {
 
-        if (montonPrin.getMazo().size() > 1) {
+        if (montonPrin.getMazo().size() > 0) {
             System.out.println(montonPrin.getMazo().get(0));
         } else {
             System.out.println("No hay más cartas para mostrar");
@@ -111,7 +112,7 @@ public class MazoService {
             System.out.println("Las carta que salio hasta ahora es: ");
             System.out.println(montonEntreg.getMazo());
         } else if (montonEntreg.getMazo().size() > 1) {
-            System.out.println("Las cartas que salieron hasta ahora son: ");
+            System.out.println("Las cartas que salieron hasta ahora son: "+ montonEntreg.getMazo().size());
             System.out.println(montonEntreg.getMazo());
         } else if (montonEntreg.getMazo().isEmpty()) {
             System.out.println("No han salido cartas por ahora");
@@ -122,17 +123,37 @@ public class MazoService {
      * mostrarBaraja(): muestra todas las cartas hasta el final. Es decir, si se saca una carta y
      *luego se llama al método, este no mostrara esa primera carta.
      */
-    public void mostrarBaraja() {
-        System.out.println("Se muestra el mazo");
+    public void mostrarBarajav2() {
+        System.out.println("Se muestran las "+montonPrin.getMazo().size()+" cartas");
         //montonPrin.getMazo().toString();
         for (Palo elemento : Palo.values()) {
             System.out.println("");
             System.out.println(elemento.toString());
             for (int i = 0; i < montonPrin.getMazo().size(); i++) {
-                //System.out.print(montonPrin.getMazo().get(i));
                 if (elemento.getNombre().equals(montonPrin.getPaloStrin(i))) {
                     System.out.print(montonPrin.getMazo().get(i));
                 } 
+            }
+        }
+        System.out.println("");
+    }
+    
+    public void mostrarBaraja() {
+        if (montonPrin.getMazo().isEmpty()) {
+            System.out.println("No quedan cartas en el mazo");
+        } else {
+            System.out.println("Cartas del mazo: "+montonPrin.getMazo().size());
+            String parrafo = "";
+            int ctrol = 0;
+            for (Object aux : montonPrin.getMazo()) {
+                parrafo = parrafo.concat(aux.toString());
+                parrafo = parrafo.concat(". ");
+                ctrol++;
+                if (ctrol == 10) {
+                    System.out.println(parrafo);
+                    parrafo = "";
+                    ctrol = 0;
+                }
             }
         }
     }

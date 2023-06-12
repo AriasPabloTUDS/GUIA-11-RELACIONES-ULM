@@ -55,7 +55,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        return " Carta {" + numero +" "+ palo + '}';
+        return " {" + numero +" "+ palo + '}';
     }
 
 }
