@@ -40,6 +40,7 @@ public class BarajaServicio {
 
     public void barajar() {
         c.shuffle(mazoInicial.getCartas());
+        
     }
 
     public Carta siguienteCarta() {

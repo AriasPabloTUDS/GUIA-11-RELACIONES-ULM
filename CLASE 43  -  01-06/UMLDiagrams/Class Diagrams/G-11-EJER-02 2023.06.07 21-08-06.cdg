@@ -131,17 +131,17 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="j" source="Entidades.Servicios.JugadorServicio" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Entidades.Juego" target="Entidades.Jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Entidades.Juego" target="Entidades.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="jugadores" source="Entidades.Juego" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
     <HasRelation name="revolver" source="Entidades.Servicios.RevolverServicio" target="Entidades.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="Entidades.Servicios.JugadorServicio" target="Entidades.Servicios.RevolverServicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Juego" target="Entidades.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="Entidades.Servicios.JuegoServicio" target="Entidades.Servicios.RevolverServicio" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="j" source="Entidades.Servicios.JuegoServicio" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="revolver" source="Entidades.Juego" target="Entidades.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="jugadores" source="Entidades.Servicios.JuegoServicio" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
+    <HasRelation name="j" source="Entidades.Servicios.JugadorServicio" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="Entidades.Servicios.JuegoServicio" target="Entidades.Revolver" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="RevolverS" source="Entidades.Servicios.JugadorServicio" target="Entidades.Servicios.RevolverServicio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jugadores" source="Entidades.Juego" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
+    <HasRelation name="j" source="Entidades.Servicios.JuegoServicio" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Servicios.JugadorServicio" target="Entidades.Servicios.RevolverServicio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Juego" target="Entidades.Jugador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jugadores" source="Entidades.Servicios.JuegoServicio" target="Entidades.Jugador" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Jugador&gt;"/>
+    <HasRelation name="revolver" source="Entidades.Juego" target="Entidades.Revolver" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
